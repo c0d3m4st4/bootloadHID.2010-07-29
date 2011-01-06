@@ -17,7 +17,7 @@
 DEVICE = atmega16a
 BOOTLOADER_ADDRESS = 3800
 F_CPU = 12000000
-FUSEH = 0xdd
+FUSEH = 0x98
 FUSEL = 0xff
 # Fuse high byte:
 # 0xc0 = 1 1 0 0   0 0 0 0 <-- BOOTRST (boot reset vector at 0x1800)
