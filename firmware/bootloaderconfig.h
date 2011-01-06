@@ -43,7 +43,7 @@ these macros are defined, the boot loader usees them.
 /* This is the port where the USB bus is connected. When you configure it to
  * "B", the registers PORTB, PINB and DDRB will be used.
  */
-#define USB_CFG_DMINUS_BIT      0
+#define USB_CFG_DMINUS_BIT      4
 /* This is the bit number in USB_CFG_IOPORT where the USB D- line is connected.
  * This may be any bit in the port.
  */
@@ -106,13 +106,14 @@ these macros are defined, the boot loader usees them.
 #ifndef __ASSEMBLER__   /* assembler cannot parse function definitions */
 #include <util/delay.h>
 
+/* Bootloader jumper in MOSI - PORTB5 */
 static inline void  bootLoaderInit(void)
 {
-    PORTD = 1 << 3; /* activate pull-up for key */
+    PORTB = 1 << 5; /* activate pull-up for key */
     _delay_us(10);  /* wait for levels to stabilize */
 }
 
-#define bootLoaderCondition()   ((PIND & (1 << 3)) == 0)   /* True if jumper is set */
+#define bootLoaderCondition()   ((PINB & (1 << 5)) == 0)   /* True if jumper is set */
 
 #endif
 
