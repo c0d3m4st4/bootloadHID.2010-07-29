@@ -14,11 +14,11 @@
 #     make flash   # to load the boot loader into flash
 #     make lock    # to protect the boot loader from overwriting
 
-DEVICE = atmega8
-BOOTLOADER_ADDRESS = 1800
+DEVICE = atmega16a
+BOOTLOADER_ADDRESS = 3800
 F_CPU = 12000000
-FUSEH = 0xc0
-FUSEL = 0x9f
+FUSEH = 0xdd
+FUSEL = 0xff
 # Fuse high byte:
 # 0xc0 = 1 1 0 0   0 0 0 0 <-- BOOTRST (boot reset vector at 0x1800)
 #        ^ ^ ^ ^   ^ ^ ^------ BOOTSZ0
